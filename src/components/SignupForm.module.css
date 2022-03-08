@@ -1,0 +1,53 @@
+.container{
+    display: flex;
+    margin-left: 10%;
+    margin-right: 2%;
+    padding: 1rem 2rem;
+    justify-content: center;
+ }
+
+ .formgroup{
+     margin-bottom: 7%;
+ }
+ 
+ .formgroup input{
+ 
+    font-size: large;
+ }
+
+ .formgroup label{
+     font-size: 16px;
+ }
+
+ .formdate {
+    width: 92%;
+ }
+ 
+ .formgroup button{
+     font-size: 16px;
+     margin-bottom: 5%;
+     background-color: rgb(27, 177, 27);
+     color: white;
+     border-radius: 12px;
+     padding: 1px 20px;
+ }
+
+ .changepage label{
+     font-size: small;
+ }
+
+ .showPassword input{
+    font-size: large;
+    margin-top: 2%;
+ }
+
+ .showPassword label{
+     font-size: small;
+ }
+
+ .errorText{
+     font-size: small;
+     color: red;
+ }
+
+ 

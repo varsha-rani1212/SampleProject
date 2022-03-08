@@ -1,0 +1,51 @@
+.container{
+   display: flex;
+   margin-left: 5%;
+   margin-top: 8%;
+}
+
+.formgroup input{
+
+    font-size: large;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+.formgroup label{
+    font-size: 16px;
+}
+
+.formgroup button{
+    font-size: 16px;
+    margin-bottom: 5%;
+    background-color: rgb(27, 177, 27);
+    color: white;
+    border-radius: 12px;
+    border-radius: 12px;
+    padding: 1px 20px;
+}
+
+.changepage label{
+    font-size: small;
+}
+
+.otherSignup button{
+    font-size: small;
+    margin-top: 8%;
+    color: white;
+    background-color: rgb(50, 104, 221);
+    border-radius: 20px;
+    padding: 2px 10px;
+}
+
+.showPassword input{
+    font-size: large;
+    margin-top: 2%;
+    margin-bottom: 5%;
+ }
+
+ .showPassword label{
+     font-size: small;
+ }
+
+
+

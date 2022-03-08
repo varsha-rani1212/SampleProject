@@ -1,0 +1,40 @@
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    background-color: aqua;
+    width: 100vw;
+}
+
+.image{
+    height: 58px;
+    width: 100px;
+}
+
+.searchBox{
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 11px 11px;
+    border-radius: 25px;
+    background: lightgray;
+    height: 12px;
+    margin-top: 1%;
+}
+
+.inputBox{
+    width: 500px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
+
+.sidePopUp{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidePopUp button{
+    border: transparent;
+    height: 60px;
+}

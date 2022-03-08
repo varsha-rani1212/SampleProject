@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+.image{
+    display: flex;
+    height: 100vh;
+}
