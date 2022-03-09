@@ -16,8 +16,8 @@ function MainPage(){
 
     const googleData = useSelector((state) => state.userData.googleData);
     const normalSignInUserData = useSelector((state) => state.userData.userData);
-    console.log("MainPage googleUserdata:" , googleData);
-    console.log("MainPage normalUserData:", normalSignInUserData);
+    // console.log("MainPage googleUserdata:" , googleData);
+    // console.log("MainPage normalUserData:", normalSignInUserData);
 
     function formHandler(event){
       event.preventDefault();

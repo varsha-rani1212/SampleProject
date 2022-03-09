@@ -2,15 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const userDataSlice = createSlice({
     name: 'userData',
-    initialState: {userData: [], googleData: {}},
+    initialState: {userData: [], googleData: {}, userInfo: {}, flag: 0},
     reducers: {
         setUserData(state, action){
             state.userData = action.payload;
-            console.log(state.userData);
         },
         setGoogleData(state, action){
             state.googleData = action.payload;
+            state.flag = 1;
         },
+        setUserInfo(state, action){
+            state.userInfo = action.payload;
+        }
     }
 });
 

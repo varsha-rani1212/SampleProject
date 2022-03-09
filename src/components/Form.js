@@ -32,6 +32,8 @@ function Form() {
       for (const key in responseData) {
         tempUserData.push({
           id: responseData[key].id,
+          firstName: responseData[key].FirstName,
+          lastName: responseData[key].LastName,
           Email: responseData[key].Email,
           password: responseData[key].password,
         });
@@ -59,19 +61,23 @@ function Form() {
 
   useEffect(() => {
     if (flag) {
-      console.log(flag);
       history.push("/MainPage");
     }
   }, [flag]);
 
   function onSubmit(event) {
     event.preventDefault();
-    console.log("loadedUserData", loadedUserData);
+   
     for (let i = 0; i < loadedUserData.length; i++) {
-      if (
-        email === loadedUserData[i].Email &&
-        password === loadedUserData[i].password
-      ) {
+      if (email === loadedUserData[i].Email && password === loadedUserData[i].password) {
+
+        const userData= {
+          firstName: loadedUserData[i].firstName,
+          lastName: loadedUserData[i].lastName,
+          email: loadedUserData[i].Email,
+        }
+
+        dispatch(userDataActions.setUserInfo(userData));
         setFlag(true);
         break;
       }
