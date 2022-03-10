@@ -1,11 +1,10 @@
-import { storage } from "../Firebase";
-import { videoUrlActions } from "../../store/videoUrl-slice";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import styles from "./UploadVideo.module.css";
+import { storage } from '../Firebase';
+import { videoUrlActions } from '../../store/videoUrl-slice';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import styles from './UploadVideo.module.css';
 import backgroundImageUpload from '../../images/background.jpeg';
-
 
 function UploadVideo() {
   const [progress, setProgess] = useState(0);
@@ -25,7 +24,7 @@ function UploadVideo() {
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
-      "state_changed",
+      'state_changed',
       (snapshot) => {
         const prog = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
@@ -40,19 +39,19 @@ function UploadVideo() {
         });
       }
     );
-  }  
+  }
 
   return (
-    <div className={styles.container} >
-     <div className={styles.uploadArea} style={{ backgroundImage: `url(${backgroundImageUpload})` }}>
-     <form onSubmit={formHandler}>
-        <br />
-        <input type="file" />
-        &nbsp;
-        <button type="submit">Upload</button>
-        <h2>Uploaded {progress} %</h2>
-      </form>
-     </div>      
+    <div className={styles.container}>
+      <div className={styles.uploadArea}>
+        <form onSubmit={formHandler}>
+          <br />
+          <input type="file" />
+          &nbsp;
+          <button type="submit">Upload</button>
+          <h2>Uploaded {progress} %</h2>
+        </form>
+      </div>
     </div>
   );
 }

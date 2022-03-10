@@ -1,63 +1,63 @@
-.container{
-    height: 100vh !important;
-    width: 75px;
-    background-color: rgb(34, 37, 37);
-    position: fixed;
-    margin-top: 70px;
+.container {
+  height: 100vh !important;
+  width: 75px;
+  background-color: rgb(34, 37, 37);
+  position: fixed;
+  /* margin-top: 70px; */
 }
 
-.size{
-    margin-top: 25px;
-    margin-left: 20px;
-    margin-bottom: 35px;
+.size {
+  margin-top: 25px;
+  margin-left: 20px;
+  margin-bottom: 35px;
 }
 
-.iconUploadNames{
-    font-size: x-small;
-    color: white;
+.iconUploadNames {
+  font-size: x-small;
+  color: white;
 }
 
-.iconAllVideoNames{
-    font-size: x-small;
-    color: white;
+.iconAllVideoNames {
+  font-size: x-small;
+  color: white;
 }
 
-.iconFavVideoNames{
-    font-size: x-small;
-    color: white;
+.iconFavVideoNames {
+  font-size: x-small;
+  color: white;
 }
 
-.uploadVideos{
-    color: gray;
-    font-size: 25px;
+.uploadVideos {
+  color: gray;
+  font-size: 25px;
 }
 
-.playVideos{
-    color: gray;
-    font-size: 30px;
+.playVideos {
+  color: gray;
+  font-size: 30px;
 }
 
-.favVideos{
-    color: gray;
-    font-size: 22px;
-    margin-left: 4px;
+.favVideos {
+  color: gray;
+  font-size: 22px;
+  margin-left: 4px;
 }
 
-.container:hover{
-    background-color: black;
+.container:hover {
+  background-color: black;
 }
 
-.uploadVideos:hover{
-    font-size: 30px;
-    color: white;
+.uploadVideos:hover {
+  font-size: 30px;
+  color: white;
 }
 
-.playVideos:hover{
-    font-size: 40px;
-    color: white;
+.playVideos:hover {
+  font-size: 40px;
+  color: white;
 }
 
-.favVideos:hover{
-    font-size: 30px;
-    color: white;
+.favVideos:hover {
+  font-size: 30px;
+  color: white;
 }
