@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import { Route, Redirect } from "react-router-dom";
 import Signup from "./components/Signup";
 import MainPage from "./components/Dashboard.js/MainPage";
+import UploadVideo from "./components/Dashboard-SideNav/UploadVideo";
 
 function App() {
   return (
@@ -11,8 +12,7 @@ function App() {
         <Route path="/" exact>
           <Redirect to="/SignIn" />
         </Route>
- 
- 
+
         <Route path="/SignIn">
           <Login />
         </Route>
@@ -23,6 +23,10 @@ function App() {
 
         <Route path="/MainPage">
           <MainPage />
+        </Route>
+
+        <Route path="/MainPage/UploadVideo">
+          <UploadVideo />
         </Route>
     </div>
   );

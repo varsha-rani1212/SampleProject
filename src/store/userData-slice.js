@@ -13,6 +13,7 @@ const userDataSlice = createSlice({
         },
         setUserInfo(state, action){
             state.userInfo = action.payload;
+            state.flag = 0;
         }
     }
 });
