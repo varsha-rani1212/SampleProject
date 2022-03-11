@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { storage } from "../Firebase";
 import {getDownloadURL, ref ,uploadBytesResumable,} from "firebase/storage";
 import { useState } from "react";
@@ -16,6 +17,16 @@ import { db } from '../Firebase';
 import { useSelector } from "react-redux";
 ---------------------------------*/
 
+=======
+import { storage } from '../Firebase';
+import { videoUrlActions } from '../../store/videoUrl-slice';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import styles from './UploadVideo.module.css';
+import backgroundImageUpload from '../../images/background.jpeg';
+
+>>>>>>> bb4dbef63f7ec836118758399164a292242613c2
 function UploadVideo() {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
@@ -87,7 +98,7 @@ function UploadVideo() {
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
-      "state_changed",
+      'state_changed',
       (snapshot) => {
         const prog = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
@@ -120,6 +131,7 @@ function UploadVideo() {
         });
       }
     );
+<<<<<<< HEAD
 
     /*-------------------------------------------
     just for checking purpose :
@@ -136,11 +148,14 @@ function UploadVideo() {
 
   ---------------------------------------------*/
 
+=======
+>>>>>>> bb4dbef63f7ec836118758399164a292242613c2
   }
 
   return (
     <div className={styles.container}>
       <div className={styles.uploadArea}>
+<<<<<<< HEAD
         <h1>Details About Video:</h1>
         <br />
 
@@ -187,6 +202,15 @@ function UploadVideo() {
         <div className={styles.progressBar}>
           <label>Uploaded:&nbsp; {progress} %</label>
         </div>
+=======
+        <form onSubmit={formHandler}>
+          <br />
+          <input type="file" />
+          &nbsp;
+          <button type="submit">Upload</button>
+          <h2>Uploaded {progress} %</h2>
+        </form>
+>>>>>>> bb4dbef63f7ec836118758399164a292242613c2
       </div>
     </div>
   );

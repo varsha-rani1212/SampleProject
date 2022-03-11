@@ -1,4 +1,5 @@
 .container {
+<<<<<<< HEAD
     display: grid;
     grid-template-columns: repeat(12,1fr);
     grid-template-rows: repeat(7,1fr);
@@ -65,4 +66,37 @@
   .errorText{
     font-size: small;
     color: red;
+=======
+  display: flex;
+  flex-direction: column;
+}
+
+.uploadArea {
+  margin: 75px 15px 20px 100px;
+  height: 90vh;
+  background-image: url('./../../../src/images/background.jpeg');
+}
+
+.uploadArea input {
+  /* position: absolute; */
+  left: 250px;
+  color: white;
+}
+
+.uploadArea h2 {
+  transition: (-50%, -50%);
+  color: white;
+  position: absolute;
+  left: 47%;
+  top: 40%;
+  margin-top: 8%;
+  font-size: 30px;
+}
+
+.uploadArea button {
+  transition: (-50%, -50%);
+  position: absolute;
+  left: 60%;
+  padding: 5px 20px;
+>>>>>>> bb4dbef63f7ec836118758399164a292242613c2
 }
