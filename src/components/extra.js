@@ -1,9 +1,6 @@
 //import Carousel from "react-elastic-carousel";
 
-// import { uid } from 'uid';
-// import { set } from 'firebase/database';
-// import { ref }  from 'firebase/database';
-// import { db } from '../Firebase';
+
 
 // const breakPoints = [
 //   {width: 1, itemsToShow: 1},
@@ -12,11 +9,7 @@
 //   {width: 1200, itemsToShow: 4},
 // ];
 
-/*const uuid= uid();
-          set(ref(db, `/videos/${uuid}`), {
-            name: "Happy",
-            title: "gupta",
-          })*/
+
 
 // <div className={styles.UploadedVideoSlider}>
 //    <Carousel breakPoints={breakPoints}>

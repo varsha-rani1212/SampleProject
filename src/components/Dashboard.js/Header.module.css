@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     justify-content: space-between;
     height: 65px;
@@ -8,14 +8,15 @@
     top: 0;
     left: 0;
     z-index: 99;
-}
-
-.image{
+    background-color: #fff;
+  }
+  
+  .image {
     height: 58px;
     width: 100px;
-}
-
-.searchBox{
+  }
+  
+  .searchBox {
     display: flex;
     border: 1px solid #ccc;
     padding: 5px 11px;
@@ -23,22 +24,22 @@
     background: lightgray;
     height: 40px;
     margin-top: 1%;
-}
-
-.searchBox img{
+  }
+  
+  .searchBox img {
     margin-top: 5px;
     height: 17px;
     width: 15px;
-}
-
-.inputBox{
+  }
+  
+  .inputBox {
     width: 500px;
     border: 0;
     outline: 0;
     background: transparent;
-}
-
-.dropbtn{
+  }
+  
+  .dropbtn {
     background-color: rgb(82, 147, 187);
     color: white;
     padding: 16px;
@@ -46,129 +47,127 @@
     font-size: 16px;
     width: 78px;
     border: none;
-}
-
-.dropdown{
+  }
+  
+  .dropdown {
     position: relative;
     display: inline-block;
-}
-
-.dropdownContent{
-   display: none;
-   position: absolute;
-   background-color: white;
-   box-shadow: 0 0 5px grey;
-   min-height: 244px;
-   width: 300px;
-   z-index: 1;
-}
-
-.dropdownContent p{
+  }
+  
+  .dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 5px grey;
+    min-height: 244px;
+    width: 300px;
+    z-index: 1;
+  }
+  
+  .dropdownContent p {
     color: black;
     display: block;
     text-decoration: none;
     margin-left: 5px;
-}
-
-.dropdownContent p:hover{
+  }
+  
+  .dropdownContent p:hover {
     color: red;
     font-size: large;
-}
-
-.dropdown:hover .dropdownContent{
+  }
+  
+  .dropdown:hover .dropdownContent {
     display: block;
-}
-
-.dropdown:hover .dropbtn{
+  }
+  
+  .dropdown:hover .dropbtn {
     background-color: rgb(82, 173, 82);
-}
-
-.userName{
+  }
+  
+  .userName {
     margin-top: 15px;
     margin-bottom: 10px;
     font-size: 15px;
-}
-
-.logout{
+  }
+  
+  .logout {
     min-width: 280px;
     margin-top: 30px;
     height: 35px;
     margin-top: 40px;
     margin-bottom: 50px;
-}
-
-.logout:hover{
+  }
+  
+  .logout:hover {
     background-color: lightgray;
-}
-
-.websiteName{
+  }
+  
+  .websiteName {
     font-size: 13px !important;
     margin-left: 5px;
     color: gray !important;
     margin-left: 20px !important;
-}
-
-.websiteName:hover{
+  }
+  
+  .websiteName:hover {
     color: black !important;
-}
-
-@media (max-width: 768px){
-
-    .inputBox{
-        width: 180px;
+  }
+  
+  @media (max-width: 768px) {
+    .inputBox {
+      width: 180px;
     }
-}
-
-@media (max-width: 480px){
-
-    .container{
-        height: 50px;
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      height: 50px;
     }
-
-    .image{
-        height: 50px;
+  
+    .image {
+      height: 50px;
     }
-
-    .searchBox{
-        display: none;
+  
+    .searchBox {
+      display: none;
     }
-
-    .dropbtn{
-       width: 60px;
-       font-size: 12px;
-       height: 50px;
+  
+    .dropbtn {
+      width: 60px;
+      font-size: 12px;
+      height: 50px;
     }
-
-    .userName{
-        font-size: 10px;
+  
+    .userName {
+      font-size: 10px;
     }
-
-    .userEmail{
-        font-size: 10px;
+  
+    .userEmail {
+      font-size: 10px;
     }
-
-    .logout{
-        min-width: 180px;
-        height: 20px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        font-size: smaller !important;
+  
+    .logout {
+      min-width: 180px;
+      height: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: smaller !important;
     }
-
-    .dropdownContent{
-        width: 200px;
-        min-height: 190px;
+  
+    .dropdownContent {
+      width: 200px;
+      min-height: 190px;
     }
-
-    .websiteName{
-        font-size: 8px !important;
+  
+    .websiteName {
+      font-size: 8px !important;
     }
-
-    .dropdownContent p:hover{
-        font-size: small;
+  
+    .dropdownContent p:hover {
+      font-size: small;
     }
-
-    .userEmail:hover{
-        font-size: 12px !important;
+  
+    .userEmail:hover {
+      font-size: 12px !important;
     }
-}
+  }

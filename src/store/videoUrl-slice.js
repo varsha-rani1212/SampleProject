@@ -2,11 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const videoUrlSlice = createSlice({
     name: 'videoUrl',
-    initialState: {url: ""},
+    initialState: {url: "", title: "", date: ""},
     reducers: {
         setUrl(state, action){
             state.url = action.payload;
-            console.log(state.url);
+        },
+        setTitle(state, action){
+            state.title = action.payload;
+        },
+        setDate(state, action){
+            state.date = action.date;
         },
     }
 });

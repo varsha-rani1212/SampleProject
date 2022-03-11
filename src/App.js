@@ -5,6 +5,7 @@ import { Route, Redirect } from "react-router-dom";
 import Signup from "./components/Signup";
 import MainPage from "./components/Dashboard.js/MainPage";
 import UploadVideo from "./components/Dashboard-SideNav/UploadVideo";
+import UploadUrl from "./components/Dashboard-SideNav/UploadUrl";
 
 function App() {
   return (

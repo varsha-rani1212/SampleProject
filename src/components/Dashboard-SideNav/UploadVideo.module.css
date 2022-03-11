@@ -1,35 +1,68 @@
-.container{
-    display: flex;
-    flex-direction: column;
-}
-
-.uploadArea {
-    margin-top: 75px;
-    margin-right: 15px;
-    margin-left: 100px;
-    margin-bottom: 20px;
+.container {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(7,1fr);
+    background-image: url('./../../../src/images/background.jpeg');
     height: 100vh;
-}
+  }
 
-.uploadArea input{
-    /* position: absolute; */
-    left: 250px;
+  .uploadArea{
+    grid-column-start: 5;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 6;
+    padding: 10px 20px;
     color: white;
-}
+  }
 
-.uploadArea h2{
-    transition: (-50%, -50%);
-    color: white;
-    position: absolute;
-    left: 47%;
-    top: 40%;
-    margin-top: 8%;
-    font-size: 30px;
-}
+  .uploadArea h1{
+    display: flex;
+    justify-content: left;
+  }
 
-.uploadArea button{
-    transition: (-50%, -50%);
-    position: absolute;
-    left: 60%;
-    padding: 5px 20px;
+  .firstRowInput{
+    display: flex;
+    justify-content: left;
+  }
+
+  .firstRowInput input{
+    display: flex;
+    width: 250px;
+    padding: 6px 0;
+  }
+
+  .uploadVideoInput{
+    display: flex;
+    justify-content: left;
+    margin-bottom: 20px;
+  }
+
+  .uploadVideoInput label{
+    font-size: 17px;
+  }
+
+  .uploadVideoButton{
+     display: flex;
+     justify-content: left;
+  }
+
+  .uploadVideoButton button:hover{
+    background-color: gray;
+  }
+
+  .uploadVideoButton button{
+    padding: 10px 100px;
+    border-radius: 12px;
+  }
+
+  .progressBar label{
+    display: flex;
+    justify-content: left;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  .errorText{
+    font-size: small;
+    color: red;
 }
