@@ -12,11 +12,8 @@
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    /* height: 200px;
-    width: 273px; */
+    height: 350px;
+    width: 310px;
     color: black;
     font-size: small;
-}
-.item iframe{
-    height: 200px;
 }
