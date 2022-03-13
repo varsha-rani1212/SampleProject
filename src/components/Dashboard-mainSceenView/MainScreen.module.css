@@ -1,0 +1,22 @@
+.UploadedVideoSlider{
+    margin-top: 70px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+    width: 90vw !important;
+    background-color: white;     
+    box-shadow: 0 0 5px gray;
+} 
+
+ .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    /* height: 200px;
+    width: 273px; */
+    color: black;
+    font-size: small;
+}
+.item iframe{
+    height: 200px;
+}

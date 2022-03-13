@@ -82,7 +82,6 @@ function UploadVideo() {
       return;
     }
     const file = event.target[0].files[0];
-    // console.log(file);
     uploadFiles(file);
   }
 
@@ -107,9 +106,14 @@ function UploadVideo() {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           dispatch(videoUrlActions.setUrl(url));
-          setProgess(0);
-          setTitle("");
-          setDate("");
+         //  const bodyTitle = {name: "varsha"};      no support for array and object store in firebase
+          // const bodyDate = [];
+          // const bodyUrl = [];
+
+          // bodyTitle.push(title);
+          // bodyDate.push(date);
+          // bodyUrl.push(url);
+          // console.log(bodyTitle);
 
           const uuid = uid();
           set(Database_Ref(db, `/videos/${uuid}`), {
@@ -120,7 +124,12 @@ function UploadVideo() {
             Title: title,
             Date: date,
             VideosUrl: url,
+            favourite: false,
           });
+
+          setProgess(0);
+          setTitle("");
+          setDate("");
         });
       }
     );

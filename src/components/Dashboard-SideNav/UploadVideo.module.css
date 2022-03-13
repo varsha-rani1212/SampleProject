@@ -4,6 +4,7 @@
     grid-template-rows: repeat(7,1fr);
     background-image: url('./../../../src/images/background.jpeg');
     height: 100vh;
+    width: 100vw;
   }
 
   .uploadArea{

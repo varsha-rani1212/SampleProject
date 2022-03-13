@@ -4,12 +4,13 @@ import Login from "./components/Login";
 import { Route, Redirect } from "react-router-dom";
 import Signup from "./components/Signup";
 import MainPage from "./components/Dashboard.js/MainPage";
-import UploadVideo from "./components/Dashboard-SideNav/UploadVideo";
-import UploadUrl from "./components/Dashboard-SideNav/UploadUrl";
+import { Switch } from "react-router-dom";
+import UploadVideoPage from "./components/Dashboard.js/UploadVideoPage";
 
 function App() {
   return (
     <div>
+      <Switch>
         <Route path="/" exact>
           <Redirect to="/SignIn" />
         </Route>
@@ -22,13 +23,15 @@ function App() {
           <Signup />
         </Route>
 
-        <Route path="/MainPage">
+        <Route path="/MainPage" exact>
           <MainPage />
         </Route>
 
         <Route path="/MainPage/UploadVideo">
-          <UploadVideo />
+          <UploadVideoPage />
         </Route>
+        
+      </Switch>
     </div>
   );
 }
