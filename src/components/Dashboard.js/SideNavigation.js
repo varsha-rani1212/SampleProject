@@ -40,6 +40,14 @@ function SideNavigation(){
         history.push("/MainPage/UploadVideo");
     }
 
+    function showAllVideoPageHandler(){
+        history.push("/MainPage/ShowAllVideos");
+    }
+
+    function showFavouriteVideoPageHandler(){
+        history.push("/MainPage/FavouriteVideos");
+    }
+
     return (
         <nav className={styles.container}>
             <div className={styles.size}>
@@ -48,12 +56,12 @@ function SideNavigation(){
             </div>
             
             <div className={styles.size}>
-                < TiMediaPlayOutline className={styles.playVideos} onMouseEnter={setPlayHoverHandler} onMouseLeave={setLeavePlayHoverHandler}/>
+                < TiMediaPlayOutline className={styles.playVideos} onMouseEnter={setPlayHoverHandler} onMouseLeave={setLeavePlayHoverHandler} onClick={showAllVideoPageHandler}/>
                 {allVideoChange && <p className={styles.iconAllVideoNames}>All Videos</p>}
             </div>
 
             <div  className={styles.size}>
-                <BiStar className={styles.favVideos} onMouseEnter={setFavHoverHandler} onMouseLeave={setLeaveFavHoverHandler}/>
+                <BiStar className={styles.favVideos} onMouseEnter={setFavHoverHandler} onMouseLeave={setLeaveFavHoverHandler} onClick={showFavouriteVideoPageHandler}/>
                 {favVideoChange && <p className={styles.iconFavVideoNames}>Favourite Videos</p>}
             </div>
 

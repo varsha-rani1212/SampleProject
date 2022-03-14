@@ -64,7 +64,7 @@ function UploadVideo() {
   function validationTitleHandler(event) {
     for (let i = 0; i < event.target.value.length; i++) {
       if (
-        validator.isAlpha(event.target.value[i]) ||
+        validator.isAlphanumeric(event.target.value[i]) ||
         event.target.value[i] === " "
       ) {
         setTitleValid(true);
@@ -106,18 +106,11 @@ function UploadVideo() {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           dispatch(videoUrlActions.setUrl(url));
-         //  const bodyTitle = {name: "varsha"};      no support for array and object store in firebase
-          // const bodyDate = [];
-          // const bodyUrl = [];
-
-          // bodyTitle.push(title);
-          // bodyDate.push(date);
-          // bodyUrl.push(url);
-          // console.log(bodyTitle);
 
           const uuid = uid();
           set(Database_Ref(db, `/videos/${uuid}`), {
             //database ref
+            id: uuid,
             FirstName: userFirstName,
             LastName: userLastName,
             Email: userEmail,
@@ -152,7 +145,7 @@ function UploadVideo() {
             />
             {!titleValid && (
               <p className={styles.errorText}>
-                Title should contain only alphabet
+                Title should contain alphabet and numbers only
               </p>
             )}
           </span>
