@@ -1,16 +1,77 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import styles from "./CheckData.module.css";
 
+import { uid } from "uid";
+import { set, remove } from "firebase/database";
+import { ref as Database_Ref } from "firebase/database";
+import { db } from "../Firebase";
+import { useSelector } from "react-redux";
+
 function CheckData(props) {
   const [showAddFav, setShowAddFavHandler] = useState(true);
+  const [loadedFavData, setLoadedFavData] = useState([]);
+  const googleData = useSelector((state) => state.userData.googleData);
+  const signInUserInfo = useSelector((state) => state.userData.userInfo);
+  const flagCheckSignInMethod = useSelector((state) => state.userData.flag);
+  let email;
 
-  function onAddToFavHandler(){
+  if (flagCheckSignInMethod === 0) email = signInUserInfo.email;
+  else email = googleData.email;
+
+  useEffect(() => {
+    const fetchUserFavouriteVideoData = async () => {
+      const response = await fetch(
+        "https://loginproject-28b6c-default-rtdb.firebaseio.com/Favourite.json"
+      );
+      const responseData = await response.json();
+      const tempData = [];
+
+      for (const key in responseData) {
+        tempData.push({
+          key: responseData[key].UserEmail,
+          id: responseData[key].id,
+          Email: responseData[key].UserEmail,
+          videoFavUrl: responseData[key].Url,
+        });
+      }
+      setLoadedFavData(tempData);
+
+      for(let i=0; i<tempData.length; i++){
+        if(tempData[i].Email === email && tempData[i].videoFavUrl === props.VideoUrl){
+          setShowAddFavHandler(false);
+        }
+      }
+    };
+    fetchUserFavouriteVideoData();
+  },[showAddFav]);
+
+  function onAddToFavHandler() {
+    const uuid = uid();
+    set(Database_Ref(db, `/Favourite/${uuid}`), {
+      id: uuid,
+      Title: props.videoTitle,
+      UploderFirstName: props.videoUploadUserFirstName,
+      UploderLastName: props.videoUploadUserLastName,
+      UploadDate: props.videoUploadDate,
+      Url: props.VideoUrl,
+      UserEmail: email,
+    });
+
     setShowAddFavHandler(false);
+    console.log(loadedFavData);
   }
 
-  function onRemoveFromFavHandler(){
+  function onRemoveFromFavHandler() {
+    for(let i=0; i<loadedFavData.length; i++){
+      if(loadedFavData[i].Email === email && loadedFavData[i].videoFavUrl === props.VideoUrl){
+       remove(Database_Ref(db, `/Favourite/${loadedFavData[i].id}`));
+        break;
+      }
+    }
+
     setShowAddFavHandler(true);
+    console.log(loadedFavData);
   }
 
   return (
@@ -23,8 +84,22 @@ function CheckData(props) {
         <label className={styles.divisionLineBoldDisplay}>|</label>{" "}
         {props.videoUploadDate}
       </p>
-      {showAddFav && <button className={styles.addToFavouriteVideo} onClick={onAddToFavHandler}>Add to Favorite</button>}
-      {!showAddFav && <button className={styles.RemoveFromFavouriteVideo} onClick={onRemoveFromFavHandler}>Remove from Favorite</button>}
+      {showAddFav && (
+        <button
+          className={styles.addToFavouriteVideo}
+          onClick={onAddToFavHandler}
+        >
+          Add to Favorite
+        </button>
+      )}
+      {!showAddFav && (
+        <button
+          className={styles.RemoveFromFavouriteVideo}
+          onClick={onRemoveFromFavHandler}
+        >
+          Remove from Favorite
+        </button>
+      )}
     </div>
   );
 }

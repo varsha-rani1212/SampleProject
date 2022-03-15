@@ -30,12 +30,8 @@ function MainScreen() {
           Email: responseData[key].Email,
           title: responseData[key].Title,
           videoUrl: responseData[key].VideosUrl,
-          fav: responseData[key].favourite,
         });
       }
-      // for(let i=0; i< tempData.length; i++){
-      //   console.log(tempData[i]);
-      // }
     };
     setloadedData(tempData);
     fetchUserUploadVideoData();

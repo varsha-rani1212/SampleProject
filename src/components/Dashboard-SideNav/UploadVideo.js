@@ -110,14 +110,12 @@ function UploadVideo() {
           const uuid = uid();
           set(Database_Ref(db, `/videos/${uuid}`), {
             //database ref
-            id: uuid,
             FirstName: userFirstName,
             LastName: userLastName,
             Email: userEmail,
             Title: title,
             Date: date,
             VideosUrl: url,
-            favourite: false,
           });
 
           setProgess(0);

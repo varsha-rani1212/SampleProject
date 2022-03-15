@@ -109,7 +109,6 @@ function SignupForm() {
 
     if (check === true) {
       body = {
-        id: email,
         FirstName: firstName,
         LastName: lastName,
         Email: email,

@@ -31,7 +31,6 @@ function Form() {
 
       for (const key in responseData) {
         tempUserData.push({
-          id: responseData[key].id,
           firstName: responseData[key].FirstName,
           lastName: responseData[key].LastName,
           Email: responseData[key].Email,

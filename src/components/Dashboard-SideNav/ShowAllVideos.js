@@ -11,7 +11,6 @@ function ShowAllVideos() {
         "https://loginproject-28b6c-default-rtdb.firebaseio.com/videos.json"
       );
       const responseData = await response.json();
-
       const tempData = [];
 
       for (const key in responseData) {
@@ -22,10 +21,8 @@ function ShowAllVideos() {
           Email: responseData[key].Email,
           title: responseData[key].Title,
           videoUrl: responseData[key].VideosUrl,
-          fav: responseData[key].favourite,
         });
       }
-
       setloadedData(tempData);
     };
     fetchUserUploadVideoData();
@@ -38,16 +35,17 @@ function ShowAllVideos() {
           return (
             <>
               <CheckData
+                key={data.Email}
+                videoEmail={data.Email}
                 VideoUrl={data.videoUrl}
                 videoTitle={data.title}
                 videoUploadUserFirstName={data.firstName}
                 videoUploadUserLastName={data.lastName}
                 videoUploadDate={data.date}
-                videoId={data.id}
               />
             </>
           );
-        }) : <p>NO VIDEOS IS AVAILABLE</p>  }
+        }) : <p></p>  }
       </div>
     </>
   );
