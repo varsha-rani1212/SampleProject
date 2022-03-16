@@ -2,6 +2,7 @@ import styles from "./MainScreen.module.css";
 import Carousel from "react-elastic-carousel";
 import ReactPlayer from "react-player";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const breakPoints = [
@@ -11,48 +12,58 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 },
 ];
 
-function MainScreen() {
+function FavouriteMainScreen() {
   const [loadedData, setloadedData] = useState([]);
   const [dataLength, setDataLength] = useState(0);
+  const googleData = useSelector((state) => state.userData.googleData);
+  const signInUserInfo = useSelector((state) => state.userData.userInfo);
+  const flagCheckSignInMethod = useSelector((state) => state.userData.flag);
   const history = useHistory();
+  let email;
+
+  if (flagCheckSignInMethod === 0) email = signInUserInfo.email;
+  else email = googleData.email;
 
   useEffect(() => {
-    const fetchAllVideoData = async () => {
+    const fetchUserFavouriteVideoData = async () => {
       const response = await fetch(
-        "https://loginproject-28b6c-default-rtdb.firebaseio.com/videos.json"
+        "https://loginproject-28b6c-default-rtdb.firebaseio.com/Favourite.json"
       );
       const responseData = await response.json();
       const tempData = [];
       let count = 0;
 
       for (const key in responseData) {
-         if(count < 9){
-          tempData.push({
-            date: responseData[key].Date,
-            firstName: responseData[key].FirstName,
-            lastName: responseData[key].LastName,
-            Email: responseData[key].Email,
-            title: responseData[key].Title,
-            videoUrl: responseData[key].VideosUrl,
-          });
-         }
-         count++;
+        if (responseData[key].UserEmail === email) {
+          if (count < 9) {
+            tempData.push({
+              key: responseData[key].UserEmail,
+              title: responseData[key].Title,
+              date: responseData[key].UploadDate,
+              firstName: responseData[key].UploderFirstName,
+              lastName: responseData[key].UploderLastName,
+              videoFavUrl: responseData[key].Url,
+              email: responseData[key].UserEmail,
+            });
+          }
+          count++;
+        }
       }
       setDataLength(count);
       setloadedData(tempData);
     };
-    fetchAllVideoData();
+    fetchUserFavouriteVideoData();
   }, []);
 
   function seeAllVideoHandler() {
-    history.push("/MainPage/ShowAllVideos");
+    history.push("/MainPage/FavouriteVideos");
   }
 
   return (
     <div className={styles.UploadedVideoSlider}>
       <div className={styles.displayHeadingCarousalContent}>
         <label className={styles.CarouselHeading}>
-          &nbsp;&nbsp;All Videos&nbsp;({dataLength})
+          &nbsp;&nbsp;Favourite Videos&nbsp;({dataLength})
         </label>
 
         <label className={styles.seeAllVideos} onClick={seeAllVideoHandler}>
@@ -66,7 +77,7 @@ function MainScreen() {
               <ReactPlayer
                 height="210px"
                 width="250px"
-                url={v.videoUrl}
+                url={v.videoFavUrl}
                 className={styles.reactPlayer}
               />
               <p className={styles.videoTitle}>{v.title}</p>
@@ -90,4 +101,4 @@ function MainScreen() {
   );
 }
 
-export default MainScreen;
+export default FavouriteMainScreen;

@@ -2,6 +2,7 @@ import styles from "./MainScreen.module.css";
 import Carousel from "react-elastic-carousel";
 import ReactPlayer from "react-player";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const breakPoints = [
@@ -11,13 +12,20 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 },
 ];
 
-function MainScreen() {
-  const [loadedData, setloadedData] = useState([]);
+function UploadedMainScreen() {
+  const [loadedUploadData, setloadedUploadData] = useState([]);
   const [dataLength, setDataLength] = useState(0);
+  const googleData = useSelector((state) => state.userData.googleData);
+  const signInUserInfo = useSelector((state) => state.userData.userInfo);
+  const flagCheckSignInMethod = useSelector((state) => state.userData.flag);
   const history = useHistory();
+  let email;
+
+  if (flagCheckSignInMethod === 0) email = signInUserInfo.email;
+  else email = googleData.email;
 
   useEffect(() => {
-    const fetchAllVideoData = async () => {
+    const fetchUserUploadVideoData = async () => {
       const response = await fetch(
         "https://loginproject-28b6c-default-rtdb.firebaseio.com/videos.json"
       );
@@ -26,33 +34,35 @@ function MainScreen() {
       let count = 0;
 
       for (const key in responseData) {
-         if(count < 9){
-          tempData.push({
-            date: responseData[key].Date,
-            firstName: responseData[key].FirstName,
-            lastName: responseData[key].LastName,
-            Email: responseData[key].Email,
-            title: responseData[key].Title,
-            videoUrl: responseData[key].VideosUrl,
-          });
-         }
-         count++;
+        if (responseData[key].Email === email) {
+          if (count < 9) {
+            tempData.push({
+              date: responseData[key].Date,
+              firstName: responseData[key].FirstName,
+              lastName: responseData[key].LastName,
+              Email: responseData[key].Email,
+              title: responseData[key].Title,
+              videoUrl: responseData[key].VideosUrl,
+            });
+          }
+          count++;
+        }
       }
       setDataLength(count);
-      setloadedData(tempData);
+      setloadedUploadData(tempData);
     };
-    fetchAllVideoData();
+    fetchUserUploadVideoData();
   }, []);
 
   function seeAllVideoHandler() {
-    history.push("/MainPage/ShowAllVideos");
+    history.push("/MainPage/UserUploadVideo");
   }
 
   return (
     <div className={styles.UploadedVideoSlider}>
       <div className={styles.displayHeadingCarousalContent}>
         <label className={styles.CarouselHeading}>
-          &nbsp;&nbsp;All Videos&nbsp;({dataLength})
+          &nbsp;&nbsp;Uploaded Videos&nbsp;({dataLength})
         </label>
 
         <label className={styles.seeAllVideos} onClick={seeAllVideoHandler}>
@@ -60,8 +70,8 @@ function MainScreen() {
         </label>
       </div>
       <Carousel breakPoints={breakPoints}>
-        {loadedData.length > 0 ? (
-          loadedData.map((v, i) => (
+        {loadedUploadData.length > 0 ? (
+          loadedUploadData.map((v, i) => (
             <div className={styles.item} key={i}>
               <ReactPlayer
                 height="210px"
@@ -90,4 +100,4 @@ function MainScreen() {
   );
 }
 
-export default MainScreen;
+export default UploadedMainScreen;

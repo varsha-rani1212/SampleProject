@@ -1,17 +1,17 @@
-import styles from "./FavouriteVideos.module.css";
-import DisplayFavData from "./DisplayFavData";
+import DisplayFavData from "../Dashboard-SideNav/DisplayFavData";
+import styles from "../Dashboard-SideNav/FavouriteVideos.module.css";
 
-function FavouriteVideos(props) {
+function ShowAllUserUploadedVideos(props) {
   return (
     <div className={styles.containerDisplay}>
-      {props.loadedFavData.length > 0 ? (
-        props.loadedFavData.map((data) => {
+      {props.loadedData.length > 0 ? (
+        props.loadedData.map((data) => {
           return (
             <>
               <DisplayFavData
                 key={data.email}
                 videoEmail={data.email}
-                VideoUrl={data.videoFavUrl}
+                VideoUrl={data.videoUrl}
                 videoTitle={data.title}
                 videoUploadUserFirstName={data.firstName}
                 videoUploadUserLastName={data.lastName}
@@ -20,11 +20,9 @@ function FavouriteVideos(props) {
             </>
           );
         })
-      ) : (
-        <p></p>
-      )}
+      ) : <p></p>}
     </div>
   );
 }
 
-export default FavouriteVideos;
+export default ShowAllUserUploadedVideos;

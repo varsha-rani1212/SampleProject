@@ -14,6 +14,10 @@ function Header() {
     history.push("/SignIn");
   }
 
+  function imageClickHandler(){
+    history.push("/MainPage");
+  }
+
   return (
     <header className={styles.container}>
       <div className={styles.dropdown}>
@@ -48,7 +52,7 @@ function Header() {
       </div>
 
       <div>
-        <img src={videoBoosterImage} alt="Error" className={styles.image} />
+        <img src={videoBoosterImage} alt="Error" className={styles.image} onClick={imageClickHandler}/>
       </div>
     </header>
   );

@@ -1,37 +1,11 @@
-import { useEffect, useState } from "react";
 import CheckData from "./CheckData";
 import styles from "./ShowAllVideos.module.css";
 
-function ShowAllVideos() {
-  const [loadedData, setloadedData] = useState([]);
-
-  useEffect(() => {
-    const fetchUserUploadVideoData = async () => {
-      const response = await fetch(
-        "https://loginproject-28b6c-default-rtdb.firebaseio.com/videos.json"
-      );
-      const responseData = await response.json();
-      const tempData = [];
-
-      for (const key in responseData) {
-        tempData.push({
-          date: responseData[key].Date,
-          firstName: responseData[key].FirstName,
-          lastName: responseData[key].LastName,
-          Email: responseData[key].Email,
-          title: responseData[key].Title,
-          videoUrl: responseData[key].VideosUrl,
-        });
-      }
-      setloadedData(tempData);
-    };
-    fetchUserUploadVideoData();
-  }, []);
-
+function ShowAllVideos(props) {
   return (
     <>
       <div className={styles.containerDisplay}>
-        {loadedData.length > 0 ? loadedData.map((data) => {
+        {props.loadedData.length > 0 ? props.loadedData.map((data) => {
           return (
             <>
               <CheckData
@@ -45,7 +19,7 @@ function ShowAllVideos() {
               />
             </>
           );
-        }) : <p></p>  }
+        }) : <p></p>}
       </div>
     </>
   );

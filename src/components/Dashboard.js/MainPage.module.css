@@ -7,6 +7,17 @@
 .container {
   position: relative;
   top: 65px;
+  background-image: url('./../../../src/images/background.jpeg');
+  height: 100%; 
+  width: 100%;
+}
+
+.containerReset{
+  position: relative;
+  top: 65px;
+  background-image: url('./../../../src/images/background.jpeg');
+  height: 100vh;
+  width: 100%;
 }
 
 .mainArea {

@@ -3,16 +3,29 @@
     width: 75px;
     background-color: rgb(34, 37, 37);
     position: fixed;
-    /* margin-top: 70px; */
   }
   
   .size {
-    /* margin-top: 25px; */
     margin-left: 20px;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
+  }
+
+  .mainPageDisplay{
+    margin-left: 20px;
+  }
+
+  .mainPage{
+    color: gray;
+    font-size: 25px;
+    margin-top: 25px;
   }
   
   .iconUploadNames {
+    font-size: x-small;
+    color: white;
+  }
+
+  .iconMainPage{
     font-size: x-small;
     color: white;
   }
@@ -59,6 +72,11 @@
   }
   
   .favVideos:hover {
+    font-size: 30px;
+    color: white;
+  }
+
+  .mainPage:hover{
     font-size: 30px;
     color: white;
   }

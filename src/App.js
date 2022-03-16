@@ -8,6 +8,7 @@ import { Switch } from "react-router-dom";
 import UploadVideoPage from "./components/Dashboard.js/UploadVideoPage";
 import ShowAllVideosPage from "./components/Dashboard.js/ShowAllVideosPage";
 import FavouriteVideosPage from "./components/Dashboard.js/FavouriteVideosPage";
+import UserUploadedVideosPage from "./components/Dashboard.js/UserUploadedVideosPage";
 
 function App() {
   return (
@@ -39,6 +40,10 @@ function App() {
 
         <Route path="/MainPage/FavouriteVideos">
           <FavouriteVideosPage />
+        </Route>
+
+        <Route path="/MainPage/UserUploadVideo">
+          <UserUploadedVideosPage />
         </Route>
         
       </Switch>
