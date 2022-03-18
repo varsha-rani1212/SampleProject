@@ -46,10 +46,10 @@ function Header() {
         </div>
       </div>
 
-      <div className={styles.searchBox}>
+      {/* <div className={styles.searchBox}>
         <input type="text" placeholder="Search" className={styles.inputBox} />
         <img src={searchImage} />
-      </div>
+      </div> */}
 
       <div>
         <img src={videoBoosterImage} alt="Error" className={styles.image} onClick={imageClickHandler}/>
