@@ -1,0 +1,71 @@
+.Display{
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(10,1fr);
+    grid-row-gap: 0;
+}
+
+.writeNotes{
+    grid-row-start: 2;
+    grid-row-end: 10;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    box-shadow: 0 0 5px gray;
+}
+
+.writeNotes label{
+    font-size: x-large;
+    font-weight: bold;
+} 
+
+.writeNotes textarea{
+    margin-top: 20px;
+}
+
+.writeNotes button{
+    margin-top: 20px;
+    padding: 5px 0;
+    border-radius: 12px;
+    background-color: lightgray;
+}
+
+.writeNotes button:hover{
+    background-color: gray;
+    font-weight: bold;
+}
+
+.videoArea{
+    grid-column-start: 6;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 10;
+    box-shadow: 0 0 5px gray;
+    padding: 10px 20px;   
+}
+
+.showBookmark{
+    margin-left: 105px;
+    margin-right: 90px;
+    box-shadow: 0 0 5px gray;
+    padding: 10px 25px;
+}
+
+.videoNotesDisplay{
+    font-size: larger;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.videoNotesDisplay label{
+    font-weight: bold;
+    color: antiquewhite;
+}

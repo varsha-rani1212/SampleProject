@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import styles from "./CheckData.module.css";
+import { MdOutlineNoteAlt } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { addNotesVideoUrlActions } from "../../store/addNotesVideoUrl-slice";
 
 import { uid } from "uid";
 import { set, remove } from "firebase/database";
 import { ref as Database_Ref } from "firebase/database";
 import { db } from "../Firebase";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function CheckData(props) {
   const [showAddFav, setShowAddFavHandler] = useState(true);
@@ -14,6 +18,8 @@ function CheckData(props) {
   const googleData = useSelector((state) => state.userData.googleData);
   const signInUserInfo = useSelector((state) => state.userData.userInfo);
   const flagCheckSignInMethod = useSelector((state) => state.userData.flag);
+  const history = useHistory();
+  const dispatch = useDispatch();
   let email;
 
   if (flagCheckSignInMethod === 0) email = signInUserInfo.email;
@@ -74,10 +80,18 @@ function CheckData(props) {
     console.log(loadedFavData);
   }
 
+  function onAddNotesHandler(){
+    dispatch(addNotesVideoUrlActions.setVideoUrl(props.VideoUrl))
+    history.push("/MainPage/ShowAllVideos/AddBookmark");
+  }
+
   return (
     <div className={styles.container}>
       <ReactPlayer controls height="170px" width="200px" url={props.VideoUrl} />
-      <p className={styles.videoTitle}>{props.videoTitle}</p>
+      <p className={styles.videoTitle}>
+        <label>{props.videoTitle}</label>
+        <MdOutlineNoteAlt onClick={onAddNotesHandler}/>
+      </p>
       <br />
       <p className={styles.uploadUserName}>
         {props.videoUploadUserFirstName}&nbsp;{props.videoUploadUserLastName}{" "}

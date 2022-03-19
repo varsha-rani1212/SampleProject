@@ -9,6 +9,7 @@ import UploadVideoPage from "./components/Dashboard.js/UploadVideoPage";
 import ShowAllVideosPage from "./components/Dashboard.js/ShowAllVideosPage";
 import FavouriteVideosPage from "./components/Dashboard.js/FavouriteVideosPage";
 import UserUploadedVideosPage from "./components/Dashboard.js/UserUploadedVideosPage";
+import AddBookmarkPage from "./components/Dashboard.js/AddBookmarkPage";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
           <UploadVideoPage />
         </Route>
 
-        <Route path="/MainPage/ShowAllVideos">
+        <Route path="/MainPage/ShowAllVideos" exact>
           <ShowAllVideosPage />
         </Route>
 
@@ -44,6 +45,10 @@ function App() {
 
         <Route path="/MainPage/UserUploadVideo">
           <UserUploadedVideosPage />
+        </Route>
+
+        <Route path="/MainPage/ShowAllVideos/AddBookmark">
+          <AddBookmarkPage />
         </Route>
         
       </Switch>

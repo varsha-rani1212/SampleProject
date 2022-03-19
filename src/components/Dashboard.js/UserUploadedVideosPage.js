@@ -26,6 +26,7 @@ function UserUploadedVideosPage(){
       for (const key in responseData) {
         if (responseData[key].Email === email) {
           tempData.push({
+            key: responseData[key].Email,
             date: responseData[key].Date,
             firstName: responseData[key].FirstName,
             lastName: responseData[key].LastName,
