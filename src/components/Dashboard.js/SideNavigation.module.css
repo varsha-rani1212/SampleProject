@@ -56,6 +56,23 @@
     font-size: 22px;
     margin-left: 4px;
   }
+
+  .showOnClick {
+    font-size: 30px;
+    margin-top: 25px;
+    color: white;
+  }
+
+  .showOnClickAllVideos {
+    font-size: 40px;
+    color: white;
+  }
+
+  .showOnClickFavVideos {
+    font-size: 30px;
+    margin-left: 4px;
+    color: white;
+  }
   
   .container:hover {
     background-color: black;

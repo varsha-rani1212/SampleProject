@@ -1,20 +1,24 @@
 import videoBoosterImage from "../../images/videoBoost.jpg";
 import searchImage from "../../images/search.png";
 import styles from "../Dashboard.js/Header.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { showHideIconActions } from "../../store/showHideIcon-slice";
 
 function Header() {
   const googleData = useSelector((state) => state.userData.googleData);
   const signInUserInfo = useSelector((state) => state.userData.userInfo);
   const flagCheckSignInMethod = useSelector((state) => state.userData.flag);
+  const heading = useSelector((state) => state.addHeadingOfPage.heading);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   function logoutHandler(){
     history.push("/SignIn");
   }
 
   function imageClickHandler(){
+    dispatch(showHideIconActions.setMainPage());
     history.push("/MainPage");
   }
 
@@ -46,10 +50,11 @@ function Header() {
         </div>
       </div>
 
-      {/* <div className={styles.searchBox}>
-        <input type="text" placeholder="Search" className={styles.inputBox} />
-        <img src={searchImage} />
-      </div> */}
+      <div className={styles.searchBox}>
+        {/* <input type="text" placeholder="Search" className={styles.inputBox} />
+        <img src={searchImage} /> */}
+        <label>{heading}</label>
+      </div>
 
       <div>
         <img src={videoBoosterImage} alt="Error" className={styles.image} onClick={imageClickHandler}/>

@@ -3,6 +3,8 @@ import Carousel from "react-elastic-carousel";
 import ReactPlayer from "react-player";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { showHideIconActions } from "../../store/showHideIcon-slice";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -15,6 +17,7 @@ function MainScreen() {
   const [loadedData, setloadedData] = useState([]);
   const [dataLength, setDataLength] = useState(0);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchAllVideoData = async () => {
@@ -45,6 +48,7 @@ function MainScreen() {
   }, []);
 
   function seeAllVideoHandler() {
+    dispatch(showHideIconActions.setAllVideos());
     history.push("/MainPage/ShowAllVideos");
   }
 

@@ -12,25 +12,34 @@
   }
   
   .image {
-    height: 58px;
-    width: 100px;
+    height: 65px;
+    width: 150px;
   }
   
   .searchBox {
     display: flex;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     padding: 5px 11px;
-    border-radius: 25px;
-    background: lightgray;
+    /* border-radius: 25px; */
+    /* background: lightgray; */
     height: 40px;
-    margin-top: 1%;
+    /* margin-top: 1%; */
+  }
+
+  .searchBox label{
+    font-size: xx-large;
+    color: gray;
+  }
+
+  .searchBox label:hover{
+    color: black;
   }
   
-  .searchBox img {
+  /* .searchBox img {
     margin-top: 5px;
     height: 17px;
     width: 15px;
-  }
+  } */
   
   .inputBox {
     width: 500px;
@@ -116,6 +125,11 @@
   @media (max-width: 768px) {
     .inputBox {
       width: 180px;
+    }
+
+    .searchBox label{
+      font-size: larger;
+      margin-top: 10px;
     }
   }
   

@@ -20,9 +20,7 @@ function FavouriteVideos(props) {
             </>
           );
         })
-      ) : (
-        <p></p>
-      )}
+      ) : <p></p> }
     </div>
   );
 }

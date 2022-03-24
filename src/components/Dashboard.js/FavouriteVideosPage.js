@@ -4,12 +4,16 @@ import styles from './MainPage.module.css';
 import FavouriteVideos from '../Dashboard-SideNav/FavouriteVideos';
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { headingOfPageActions }  from "../../store/headingOfPage-slice";
 
 function FavouriteVideosPage(){
   const [loadedFavData, setLoadedFavData] = useState([]);
   const googleData = useSelector((state) => state.userData.googleData);
   const signInUserInfo = useSelector((state) => state.userData.userInfo);
   const flagCheckSignInMethod = useSelector((state) => state.userData.flag);
+  const dispatch = useDispatch();
+  dispatch(headingOfPageActions.setHeading("Favourite Videos"));
   let email;
 
   if (flagCheckSignInMethod === 0) email = signInUserInfo.email;

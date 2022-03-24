@@ -3,9 +3,13 @@ import SideNavigation from './SideNavigation';
 import styles from './MainPage.module.css';
 import ShowAllVideos from '../Dashboard-SideNav/ShowAllVideos';
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { headingOfPageActions }  from "../../store/headingOfPage-slice";
 
 function ShowAllVideosPage() {
   const [loadedData, setloadedData] = useState([]);
+  const dispatch = useDispatch();
+  dispatch(headingOfPageActions.setHeading("All Videos"));
 
   useEffect(() => {
     const fetchUserUploadVideoData = async () => {

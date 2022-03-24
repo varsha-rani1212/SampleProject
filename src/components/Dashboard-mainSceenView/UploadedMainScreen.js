@@ -2,8 +2,9 @@ import styles from "./MainScreen.module.css";
 import Carousel from "react-elastic-carousel";
 import ReactPlayer from "react-player";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector,  useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { showHideIconActions } from "../../store/showHideIcon-slice";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -19,6 +20,7 @@ function UploadedMainScreen() {
   const signInUserInfo = useSelector((state) => state.userData.userInfo);
   const flagCheckSignInMethod = useSelector((state) => state.userData.flag);
   const history = useHistory();
+  const dispatch = useDispatch();
   let email;
 
   if (flagCheckSignInMethod === 0) email = signInUserInfo.email;
@@ -55,6 +57,7 @@ function UploadedMainScreen() {
   }, []);
 
   function seeAllVideoHandler() {
+    dispatch(showHideIconActions.setUploadedVideos());
     history.push("/MainPage/UserUploadVideo");
   }
 

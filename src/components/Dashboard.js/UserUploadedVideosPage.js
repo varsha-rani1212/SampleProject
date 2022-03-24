@@ -4,12 +4,16 @@ import styles from './MainPage.module.css';
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ShowAllUserUploadedVideos from './ShowAllUserUploadedVideos';
+import { useDispatch } from "react-redux";
+import { headingOfPageActions }  from "../../store/headingOfPage-slice";
 
 function UserUploadedVideosPage(){
   const [loadedData, setloadedData] = useState([]);
   const googleData = useSelector((state) => state.userData.googleData);
   const signInUserInfo = useSelector((state) => state.userData.userInfo);
   const flagCheckSignInMethod = useSelector((state) => state.userData.flag);
+  const dispatch = useDispatch();
+  dispatch(headingOfPageActions.setHeading("Uploaded Videos"));
   let email;
 
   if (flagCheckSignInMethod === 0) email = signInUserInfo.email;
